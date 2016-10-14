@@ -257,7 +257,7 @@ public class TopLevelContainer extends javax.swing.JFrame {
 		jPanel8.add(jScrollPane2, gridBagConstraints);
 
 		HomePanel searchPanel = new HomePanel(jTable2,jTabbedPane1);
-
+		searchPanel.setCdPanel(delevaryPanel);
 		jPanel2.add(searchPanel.getToplevelPanel(), java.awt.BorderLayout.CENTER);
 
 		jTabbedPane1.addTab("Home", jPanel2);

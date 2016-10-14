@@ -37,6 +37,19 @@ public class CreateDCPanel extends javax.swing.JFrame {
 
 		dateOP.setDate(Calendar.getInstance().getTime());
 		dateOP.setFormats(new SimpleDateFormat("dd/MM/yyyy"));
+		
+		
+		jButton1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("TO DO for SAVE");
+				jButton1.setText("Update");
+				jButton2.setText("Home");
+			}
+		});
+		
+		
 		jButton2.addActionListener(new ActionListener() {
 
 			@Override
@@ -428,7 +441,7 @@ public class CreateDCPanel extends javax.swing.JFrame {
 
 		tableContainer.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
-		jButton1.setText("Create DeleveryChallan");
+		jButton1.setText("Save");
 		jPanel1.add(jButton1);
 
 		jButton2.setText("Cancel");
@@ -524,6 +537,22 @@ public class CreateDCPanel extends javax.swing.JFrame {
 
 	private javax.swing.JButton createB;
 	private javax.swing.JButton jButton2;
+	public javax.swing.JButton getjButton2() {
+		return jButton2;
+	}
+
+	public void setjButton2(javax.swing.JButton jButton2) {
+		this.jButton2 = jButton2;
+	}
+
+	public javax.swing.JButton getjButton1() {
+		return jButton1;
+	}
+
+	public void setjButton1(javax.swing.JButton jButton1) {
+		this.jButton1 = jButton1;
+	}
+
 	private javax.swing.JButton jButton1;
 	private javax.swing.JButton jButton3;
 	private javax.swing.JButton jButton4;

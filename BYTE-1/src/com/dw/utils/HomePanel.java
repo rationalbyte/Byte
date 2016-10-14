@@ -17,6 +17,14 @@ import javax.swing.JTable;
  */
 public class HomePanel extends javax.swing.JFrame {
 	javax.swing.JTabbedPane jTabbedPane1 = null;
+	CreateDCPanel cdPanel=null;
+	public CreateDCPanel getCdPanel() {
+		return cdPanel;
+	}
+
+	public void setCdPanel(CreateDCPanel cdPanel) {
+		this.cdPanel = cdPanel;
+	}
 
 	/**
 	 * Creates new form HomePanel
@@ -43,6 +51,8 @@ public class HomePanel extends javax.swing.JFrame {
 				jTabbedPane1.setEnabledAt(4, false);
 				jTabbedPane1.setEnabledAt(5, false);
 
+				cdPanel.getjButton1().setText("Save");
+				cdPanel.getjButton2().setText("Cancel");
 				jTabbedPane1.getModel().setSelectedIndex(2);
 
 			}
