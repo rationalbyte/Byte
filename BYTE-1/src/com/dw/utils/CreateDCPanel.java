@@ -39,18 +39,18 @@ public class CreateDCPanel extends javax.swing.JFrame {
 		dateOP.setFormats(new SimpleDateFormat("dd/MM/yyyy"));
 		
 		
-		jButton1.addActionListener(new ActionListener() {
+		saveButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("TO DO for SAVE");
-				jButton1.setText("Update");
-				jButton2.setText("Home");
+				saveButton.setText("Update");
+				cancelButton.setText("Home");
 			}
 		});
 		
 		
-		jButton2.addActionListener(new ActionListener() {
+		cancelButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -70,7 +70,7 @@ public class CreateDCPanel extends javax.swing.JFrame {
 			}
 		});
 
-		jButton3.addActionListener(new ActionListener() {
+		addItemButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -87,7 +87,7 @@ public class CreateDCPanel extends javax.swing.JFrame {
 			}
 		});
 
-		jButton5.addActionListener(new ActionListener() {
+		clearButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -100,7 +100,7 @@ public class CreateDCPanel extends javax.swing.JFrame {
 			}
 		});
 
-		jButton4.addActionListener(new ActionListener() {
+		deleteItemButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -139,18 +139,18 @@ public class CreateDCPanel extends javax.swing.JFrame {
 		propertiersPanel = new javax.swing.JPanel();
 		noL = new javax.swing.JLabel();
 		noL.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jLabel3 = new javax.swing.JLabel();
-		jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jLabel4 = new javax.swing.JLabel();
-		jLabel4.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jLabel5 = new javax.swing.JLabel();
-		jLabel5.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jLabel6 = new javax.swing.JLabel();
-		jLabel6.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jLabel7 = new javax.swing.JLabel();
-		jLabel7.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jLabel8 = new javax.swing.JLabel();
-		jLabel8.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		orderNOLable = new javax.swing.JLabel();
+		orderNOLable.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		descriptionLabel = new javax.swing.JLabel();
+		descriptionLabel.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		orderDateLabel = new javax.swing.JLabel();
+		orderDateLabel.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		dateLabel = new javax.swing.JLabel();
+		dateLabel.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		remarksLabel = new javax.swing.JLabel();
+		remarksLabel.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		qtyLabel = new javax.swing.JLabel();
+		qtyLabel.setFont(new java.awt.Font("Ubuntu", 0, 18));
 		orderNoTF = new javax.swing.JTextField();
 		orderNoTF.setFont(new java.awt.Font("Ubuntu", 0, 18));
 		orderNoTF.setColumns(5);
@@ -182,39 +182,39 @@ public class CreateDCPanel extends javax.swing.JFrame {
 
 		jScrollPane1 = new javax.swing.JScrollPane();
 		jTextArea1 = new javax.swing.JTextArea();
-		jButton3 = new javax.swing.JButton();
-		jButton3.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jButton4 = new javax.swing.JButton();
-		jButton4.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jLabel10 = new javax.swing.JLabel();
-		jLabel10.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jLabel11 = new javax.swing.JLabel();
-		jLabel11.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		addItemButton = new javax.swing.JButton();
+		addItemButton.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		deleteItemButton = new javax.swing.JButton();
+		deleteItemButton.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		perLabel = new javax.swing.JLabel();
+		perLabel.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		rateLabel = new javax.swing.JLabel();
+		rateLabel.setFont(new java.awt.Font("Ubuntu", 0, 18));
 		jComboBox1 = new javax.swing.JComboBox<>();
 		jComboBox1.setFont(new java.awt.Font("Ubuntu", 0, 18));
 		rTF = new javax.swing.JTextField();
 		rTF.setFont(new java.awt.Font("Ubuntu", 0, 18));
 		rTF.setColumns(5);
 
-		jLabel14 = new javax.swing.JLabel();
-		jLabel14.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		copanyLabel = new javax.swing.JLabel();
+		copanyLabel.setFont(new java.awt.Font("Ubuntu", 0, 18));
 
-		jTextField11 = new javax.swing.JTextField();
-		jTextField11.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jTextField11.setColumns(5);
+		companyTextField = new javax.swing.JTextField();
+		companyTextField.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		companyTextField.setColumns(5);
 
-		jButton5 = new javax.swing.JButton();
-		jButton5.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		clearButton = new javax.swing.JButton();
+		clearButton.setFont(new java.awt.Font("Ubuntu", 0, 18));
 		tableContainer = new javax.swing.JPanel();
 		jScrollPane2 = new javax.swing.JScrollPane();
 		dcTable = new javax.swing.JTable();
 		dcTable.setFont(new java.awt.Font("Ubuntu", 0, 18));
 		dcTable.getTableHeader().setFont(new java.awt.Font("Ubuntu", 0, 18));
 		jPanel1 = new javax.swing.JPanel();
-		jButton1 = new javax.swing.JButton();
-		jButton1.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jButton2 = new javax.swing.JButton();
-		jButton2.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		saveButton = new javax.swing.JButton();
+		saveButton.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		cancelButton = new javax.swing.JButton();
+		cancelButton.setFont(new java.awt.Font("Ubuntu", 0, 18));
 		jLabel1 = new javax.swing.JLabel();
 		jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 18));
 
@@ -232,50 +232,50 @@ public class CreateDCPanel extends javax.swing.JFrame {
 		gridBagConstraints.weightx = 0.2;
 		propertiersPanel.add(noL, gridBagConstraints);
 
-		jLabel3.setText("Order No:");
+		orderNOLable.setText("Order No:");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 4;
 		gridBagConstraints.gridy = 0;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-		propertiersPanel.add(jLabel3, gridBagConstraints);
+		propertiersPanel.add(orderNOLable, gridBagConstraints);
 
-		jLabel4.setText("Description:");
+		descriptionLabel.setText("Description:");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 2;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-		propertiersPanel.add(jLabel4, gridBagConstraints);
+		propertiersPanel.add(descriptionLabel, gridBagConstraints);
 
-		jLabel5.setText("Order Date:");
+		orderDateLabel.setText("Order Date:");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 6;
 		gridBagConstraints.gridy = 0;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-		propertiersPanel.add(jLabel5, gridBagConstraints);
+		propertiersPanel.add(orderDateLabel, gridBagConstraints);
 
-		jLabel6.setText("Date:");
+		dateLabel.setText("Date:");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 0;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
 		gridBagConstraints.weightx = 0.2;
-		propertiersPanel.add(jLabel6, gridBagConstraints);
+		propertiersPanel.add(dateLabel, gridBagConstraints);
 
-		jLabel7.setText("Remarks:");
+		remarksLabel.setText("Remarks:");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 8;
 		gridBagConstraints.gridy = 2;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
 		gridBagConstraints.weightx = 0.05;
-		propertiersPanel.add(jLabel7, gridBagConstraints);
+		propertiersPanel.add(remarksLabel, gridBagConstraints);
 
-		jLabel8.setText("Qty:");
+		qtyLabel.setText("Qty:");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 2;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-		propertiersPanel.add(jLabel8, gridBagConstraints);
+		propertiersPanel.add(qtyLabel, gridBagConstraints);
 
 		orderNoTF.setText("orderNoTF");
 		gridBagConstraints = new java.awt.GridBagConstraints();
@@ -353,33 +353,33 @@ public class CreateDCPanel extends javax.swing.JFrame {
 		gridBagConstraints.weightx = 0.2;
 		propertiersPanel.add(jScrollPane1, gridBagConstraints);
 
-		jButton3.setText("AddItem");
+		addItemButton.setText("AddItem");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 10;
 		gridBagConstraints.gridy = 2;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-		propertiersPanel.add(jButton3, gridBagConstraints);
+		propertiersPanel.add(addItemButton, gridBagConstraints);
 
-		jButton4.setText("DeleteItem");
+		deleteItemButton.setText("DeleteItem");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 11;
 		gridBagConstraints.gridy = 2;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-		propertiersPanel.add(jButton4, gridBagConstraints);
+		propertiersPanel.add(deleteItemButton, gridBagConstraints);
 
-		jLabel10.setText("Per:");
+		perLabel.setText("Per:");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 4;
 		gridBagConstraints.gridy = 2;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-		propertiersPanel.add(jLabel10, gridBagConstraints);
+		propertiersPanel.add(perLabel, gridBagConstraints);
 
-		jLabel11.setText("     Rate:");
+		rateLabel.setText("     Rate:");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 6;
 		gridBagConstraints.gridy = 2;
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-		propertiersPanel.add(jLabel11, gridBagConstraints);
+		propertiersPanel.add(rateLabel, gridBagConstraints);
 
 		jComboBox1.setModel(
 				new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -396,24 +396,24 @@ public class CreateDCPanel extends javax.swing.JFrame {
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
 		propertiersPanel.add(rTF, gridBagConstraints);
 
-		jLabel14.setText("Company Name:");
+		copanyLabel.setText("Company Name:");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 8;
 		gridBagConstraints.gridy = 0;
-		propertiersPanel.add(jLabel14, gridBagConstraints);
+		propertiersPanel.add(copanyLabel, gridBagConstraints);
 
-		jTextField11.setText("PexaByte");
+		companyTextField.setText("PexaByte");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 9;
 		gridBagConstraints.gridy = 0;
-		propertiersPanel.add(jTextField11, gridBagConstraints);
+		propertiersPanel.add(companyTextField, gridBagConstraints);
 
-		jButton5.setText("Clear");
+		clearButton.setText("Clear");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 12;
 		gridBagConstraints.gridy = 2;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		propertiersPanel.add(jButton5, gridBagConstraints);
+		propertiersPanel.add(clearButton, gridBagConstraints);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -441,11 +441,11 @@ public class CreateDCPanel extends javax.swing.JFrame {
 
 		tableContainer.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
-		jButton1.setText("Save");
-		jPanel1.add(jButton1);
+		saveButton.setText("Save");
+		jPanel1.add(saveButton);
 
-		jButton2.setText("Cancel");
-		jPanel1.add(jButton2);
+		cancelButton.setText("Cancel");
+		jPanel1.add(cancelButton);
 
 		tableContainer.add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
@@ -535,47 +535,39 @@ public class CreateDCPanel extends javax.swing.JFrame {
 		this.dcPanel = dcPanel;
 	}
 
-	private javax.swing.JButton createB;
-	private javax.swing.JButton jButton2;
-	public javax.swing.JButton getjButton2() {
-		return jButton2;
+	private javax.swing.JButton cancelButton;
+	public javax.swing.JButton getCancelButton() {
+		return cancelButton;
 	}
 
-	public void setjButton2(javax.swing.JButton jButton2) {
-		this.jButton2 = jButton2;
+	public void setCancelButton(javax.swing.JButton jButton2) {
+		this.cancelButton = jButton2;
 	}
 
-	public javax.swing.JButton getjButton1() {
-		return jButton1;
+	public javax.swing.JButton getSaveButton() {
+		return saveButton;
 	}
 
-	public void setjButton1(javax.swing.JButton jButton1) {
-		this.jButton1 = jButton1;
+	public void setSaveButton(javax.swing.JButton jButton1) {
+		this.saveButton = jButton1;
 	}
 
-	private javax.swing.JButton jButton1;
-	private javax.swing.JButton jButton3;
-	private javax.swing.JButton jButton4;
-	private javax.swing.JButton addItem;
-	private javax.swing.JButton deleteItemB;
-	private javax.swing.JButton jButton5;
+	private javax.swing.JButton saveButton;
+	private javax.swing.JButton addItemButton;
+	private javax.swing.JButton deleteItemButton;
+	private javax.swing.JButton clearButton;
 	private javax.swing.JComboBox<String> jComboBox1;
-	private javax.swing.JComboBox<String> jComboBox2;
 	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel jLabel10;
-	private javax.swing.JLabel jLabel11;
-	private javax.swing.JLabel jLabel12;
-	private javax.swing.JLabel jLabel13;
+	private javax.swing.JLabel perLabel;
+	private javax.swing.JLabel rateLabel;
 	private javax.swing.JLabel noL;
-	private javax.swing.JLabel jLabel14;
-	private javax.swing.JLabel companyL;
-	private javax.swing.JLabel jLabel3;
-	private javax.swing.JLabel jLabel4;
-	private javax.swing.JLabel jLabel5;
-	private javax.swing.JLabel jLabel6;
-	private javax.swing.JLabel jLabel7;
-	private javax.swing.JLabel jLabel8;
-	private javax.swing.JLabel jLabel9;
+	private javax.swing.JLabel copanyLabel;
+	private javax.swing.JLabel orderNOLable;
+	private javax.swing.JLabel descriptionLabel;
+	private javax.swing.JLabel orderDateLabel;
+	private javax.swing.JLabel dateLabel;
+	private javax.swing.JLabel remarksLabel;
+	private javax.swing.JLabel qtyLabel;
 	private javax.swing.JPanel jPanel1;
 	private javax.swing.JScrollPane jScrollPane1;
 	private javax.swing.JScrollPane jScrollPane2;
@@ -584,7 +576,7 @@ public class CreateDCPanel extends javax.swing.JFrame {
 	private javax.swing.JTextField orderNoTF;
 	private javax.swing.JTextField companyTF;
 	private javax.swing.JTextField rTF;
-	private javax.swing.JTextField jTextField11;
+	private javax.swing.JTextField companyTextField;
 	private javax.swing.JTextField desTF;
 	private javax.swing.JTextField descriptionTF;
 	private javax.swing.JTextField snoTF;
@@ -592,12 +584,7 @@ public class CreateDCPanel extends javax.swing.JFrame {
 	JXDatePicker dateP = new JXDatePicker();
 	JXDatePicker dateOP = new JXDatePicker();
 
-	private javax.swing.JTextField dateTF;
-	private javax.swing.JTextField remarksTF;
 	private javax.swing.JTextField rMTF;
-	private javax.swing.JTextField jTextField8;
-	private javax.swing.JTextField jTextField9;
-	private javax.swing.JTextField rateTF;
 	private javax.swing.JPanel propertiersPanel;
 	private javax.swing.JPanel tableContainer;
 

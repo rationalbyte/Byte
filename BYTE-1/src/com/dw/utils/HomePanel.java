@@ -38,7 +38,7 @@ public class HomePanel extends javax.swing.JFrame {
 		this.jTable2 = table;
 		initComponents();
 		jTabbedPane1 = jTabbedPane;
-		jButton1.addActionListener(new ActionListener() {
+		createDCButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -51,13 +51,13 @@ public class HomePanel extends javax.swing.JFrame {
 				jTabbedPane1.setEnabledAt(4, false);
 				jTabbedPane1.setEnabledAt(5, false);
 
-				cdPanel.getjButton1().setText("Save");
-				cdPanel.getjButton2().setText("Cancel");
+				cdPanel.getSaveButton().setText("Save");
+				cdPanel.getCancelButton().setText("Cancel");
 				jTabbedPane1.getModel().setSelectedIndex(2);
 
 			}
 		});
-		jButton4.addActionListener(new ActionListener() {
+		loadDCButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -65,7 +65,7 @@ public class HomePanel extends javax.swing.JFrame {
 				System.out.println("LoadDelievryChallan do here");
 			}
 		});
-		jButton4.addActionListener(new ActionListener() {
+		loadDCButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -73,7 +73,7 @@ public class HomePanel extends javax.swing.JFrame {
 				System.out.println("EDIT DelievryChallan do here");
 			}
 		});
-		jButton6.addActionListener(new ActionListener() {
+		deleteDCButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -81,7 +81,7 @@ public class HomePanel extends javax.swing.JFrame {
 				System.out.println("Delete DelievryChallan do here");
 			}
 		});
-		jButton2.addActionListener(new ActionListener() {
+		editButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -89,7 +89,7 @@ public class HomePanel extends javax.swing.JFrame {
 				System.out.println("EDIT INOICE..do here");
 			}
 		});
-		jButton7.addActionListener(new ActionListener() {
+		delteButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -112,53 +112,53 @@ public class HomePanel extends javax.swing.JFrame {
 
 		toplevelPanel = new javax.swing.JPanel();
 		jPanel1 = new javax.swing.JPanel();
-		jButton1 = new javax.swing.JButton();
-		jButton1.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jLabel6 = new javax.swing.JLabel();
-		jLabel6.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		createDCButton = new javax.swing.JButton();
+		createDCButton.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		msLabel = new javax.swing.JLabel();
+		msLabel.setFont(new java.awt.Font("Ubuntu", 0, 18));
 		jComboBox2 = new javax.swing.JComboBox<>();
 		jComboBox2.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jButton4 = new javax.swing.JButton();
-		jButton4.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jButton5 = new javax.swing.JButton();
-		jButton5.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jButton6 = new javax.swing.JButton();
-		jButton6.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		loadDCButton = new javax.swing.JButton();
+		loadDCButton.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		editDCButton = new javax.swing.JButton();
+		editDCButton.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		deleteDCButton = new javax.swing.JButton();
+		deleteDCButton.setFont(new java.awt.Font("Ubuntu", 0, 18));
 		jPanel3 = new javax.swing.JPanel();
 		jScrollPane2 = new javax.swing.JScrollPane();
 		// jTable2 = new javax.swing.JTable();
 		jPanel4 = new javax.swing.JPanel();
 		jPanel2 = new javax.swing.JPanel();
-		jLabel1 = new javax.swing.JLabel();
-		jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jTextField1 = new javax.swing.JTextField();
-		jTextField1.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jTextField2 = new javax.swing.JTextField();
-		jTextField2.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jTextField3 = new javax.swing.JTextField();
-		jTextField3.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		invNoLabel = new javax.swing.JLabel();
+		invNoLabel.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		invNOTextField = new javax.swing.JTextField();
+		invNOTextField.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		percTextField = new javax.swing.JTextField();
+		percTextField.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		tinTextField = new javax.swing.JTextField();
+		tinTextField.setFont(new java.awt.Font("Ubuntu", 0, 18));
 
-		jButton2 = new javax.swing.JButton();
-		jButton2.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jButton7 = new javax.swing.JButton();
-		jButton7.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		editButton = new javax.swing.JButton();
+		editButton.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		delteButton = new javax.swing.JButton();
+		delteButton.setFont(new java.awt.Font("Ubuntu", 0, 18));
 		jPanel5 = new javax.swing.JPanel();
-		jLabel3 = new javax.swing.JLabel();
-		jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		serviceTaxLabel = new javax.swing.JLabel();
+		serviceTaxLabel.setFont(new java.awt.Font("Ubuntu", 0, 18));
 		jComboBox1 = new javax.swing.JComboBox<>();
 		jComboBox1.setFont(new java.awt.Font("Ubuntu", 0, 18));
 		jScrollPane3 = new javax.swing.JScrollPane();
 		jTextPane2 = new javax.swing.JTextPane();
 		jTextPane2.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jLabel5 = new javax.swing.JLabel();
-		jLabel5.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jLabel4 = new javax.swing.JLabel();
-		jLabel4.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		percentLabel = new javax.swing.JLabel();
+		percentLabel.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		partyTINnoLabel = new javax.swing.JLabel();
+		partyTINnoLabel.setFont(new java.awt.Font("Ubuntu", 0, 18));
 		jScrollPane1 = new javax.swing.JScrollPane();
 		jTextPane1 = new javax.swing.JTextPane();
 		jTextPane1.setFont(new java.awt.Font("Ubuntu", 0, 18));
-		jButton3 = new javax.swing.JButton();
-		jButton3.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		genInvButton = new javax.swing.JButton();
+		genInvButton.setFont(new java.awt.Font("Ubuntu", 0, 18));
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -169,24 +169,24 @@ public class HomePanel extends javax.swing.JFrame {
 				new java.awt.Font("Ubuntu", 0, 18)));
 		jPanel1.setLayout(new java.awt.GridBagLayout());
 
-		jButton1.setText("Create Delivery Challan");
-		jPanel1.add(jButton1, new java.awt.GridBagConstraints());
+		createDCButton.setText("Create Delivery Challan");
+		jPanel1.add(createDCButton, new java.awt.GridBagConstraints());
 
-		jLabel6.setText("M/s");
-		jPanel1.add(jLabel6, new java.awt.GridBagConstraints());
+		msLabel.setText("M/s");
+		jPanel1.add(msLabel, new java.awt.GridBagConstraints());
 
 		jComboBox2.setModel(
 				new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 		jPanel1.add(jComboBox2, new java.awt.GridBagConstraints());
 
-		jButton4.setText("LoadDelievryChallan");
-		jPanel1.add(jButton4, new java.awt.GridBagConstraints());
+		loadDCButton.setText("LoadDelievryChallan");
+		jPanel1.add(loadDCButton, new java.awt.GridBagConstraints());
 
-		jButton5.setText("EDIT DelievryChallan");
-		jPanel1.add(jButton5, new java.awt.GridBagConstraints());
+		editDCButton.setText("EDIT DelievryChallan");
+		jPanel1.add(editDCButton, new java.awt.GridBagConstraints());
 
-		jButton6.setText("Delete DelievryChallan");
-		jPanel1.add(jButton6, new java.awt.GridBagConstraints());
+		deleteDCButton.setText("Delete DelievryChallan");
+		jPanel1.add(deleteDCButton, new java.awt.GridBagConstraints());
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -215,22 +215,22 @@ public class HomePanel extends javax.swing.JFrame {
 
 		jPanel2.setLayout(new java.awt.GridBagLayout());
 
-		jLabel1.setText("INVOICE NO:");
-		jPanel2.add(jLabel1, new java.awt.GridBagConstraints());
+		invNoLabel.setText("INVOICE NO:");
+		jPanel2.add(invNoLabel, new java.awt.GridBagConstraints());
 
-		jTextField1.setText("jTextField1");
-		jTextField1.addActionListener(new java.awt.event.ActionListener() {
+		invNOTextField.setText("invNOTextField");
+		invNOTextField.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jTextField1ActionPerformed(evt);
 			}
 		});
-		jPanel2.add(jTextField1, new java.awt.GridBagConstraints());
+		jPanel2.add(invNOTextField, new java.awt.GridBagConstraints());
 
-		jButton2.setText("EDIT");
-		jPanel2.add(jButton2, new java.awt.GridBagConstraints());
+		editButton.setText("EDIT");
+		jPanel2.add(editButton, new java.awt.GridBagConstraints());
 
-		jButton7.setText("DELETE");
-		jPanel2.add(jButton7, new java.awt.GridBagConstraints());
+		delteButton.setText("DELETE");
+		jPanel2.add(delteButton, new java.awt.GridBagConstraints());
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 3;
@@ -242,34 +242,34 @@ public class HomePanel extends javax.swing.JFrame {
 
 		jPanel5.setLayout(new java.awt.GridBagLayout());
 
-		jLabel3.setText("Service Tax:");
-		jPanel5.add(jLabel3, new java.awt.GridBagConstraints());
+		serviceTaxLabel.setText("Service Tax:");
+		jPanel5.add(serviceTaxLabel, new java.awt.GridBagConstraints());
 
 		jComboBox1.setModel(
 				new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 		jPanel5.add(jComboBox1, new java.awt.GridBagConstraints());
 		jScrollPane3.setViewportView(jTextPane2);
-		jTextField2.setText("%");
-		jPanel5.add(jTextField2, new java.awt.GridBagConstraints());
+		percTextField.setText("%");
+		jPanel5.add(percTextField, new java.awt.GridBagConstraints());
 
-		jLabel5.setText("%");
-		jPanel5.add(jLabel5, new java.awt.GridBagConstraints());
+		percentLabel.setText("%");
+		jPanel5.add(percentLabel, new java.awt.GridBagConstraints());
 
-		jLabel4.setText("Party TIN No:");
-		jPanel5.add(jLabel4, new java.awt.GridBagConstraints());
+		partyTINnoLabel.setText("Party TIN No:");
+		jPanel5.add(partyTINnoLabel, new java.awt.GridBagConstraints());
 
 		jScrollPane1.setViewportView(jTextPane1);
-		jTextField3.setText("TIN");
-		jTextField3.setColumns(15);
-		jPanel5.add(jTextField3);
+		tinTextField.setText("TIN");
+		tinTextField.setColumns(15);
+		jPanel5.add(tinTextField);
 
-		jButton3.setText("Generate Invoice");
-		jButton3.addActionListener(new java.awt.event.ActionListener() {
+		genInvButton.setText("Generate Invoice");
+		genInvButton.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jButton3ActionPerformed(evt);
 			}
 		});
-		jPanel5.add(jButton3, new java.awt.GridBagConstraints());
+		jPanel5.add(genInvButton, new java.awt.GridBagConstraints());
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -353,20 +353,20 @@ public class HomePanel extends javax.swing.JFrame {
 	}
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JButton jButton1;
-	private javax.swing.JButton jButton2;
-	private javax.swing.JButton jButton3;
-	private javax.swing.JButton jButton4;
-	private javax.swing.JButton jButton5;
-	private javax.swing.JButton jButton6;
-	private javax.swing.JButton jButton7;
+	private javax.swing.JButton createDCButton;
+	private javax.swing.JButton editButton;
+	private javax.swing.JButton genInvButton;
+	private javax.swing.JButton loadDCButton;
+	private javax.swing.JButton editDCButton;
+	private javax.swing.JButton deleteDCButton;
+	private javax.swing.JButton delteButton;
 	private javax.swing.JComboBox<String> jComboBox1;
 	private javax.swing.JComboBox<String> jComboBox2;
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel jLabel3;
-	private javax.swing.JLabel jLabel4;
-	private javax.swing.JLabel jLabel5;
-	private javax.swing.JLabel jLabel6;
+	private javax.swing.JLabel invNoLabel;
+	private javax.swing.JLabel serviceTaxLabel;
+	private javax.swing.JLabel partyTINnoLabel;
+	private javax.swing.JLabel percentLabel;
+	private javax.swing.JLabel msLabel;
 	private javax.swing.JPanel jPanel1;
 	private javax.swing.JPanel jPanel2;
 	private javax.swing.JPanel jPanel3;
@@ -376,11 +376,11 @@ public class HomePanel extends javax.swing.JFrame {
 	private javax.swing.JScrollPane jScrollPane2;
 	private javax.swing.JScrollPane jScrollPane3;
 	private javax.swing.JTable jTable2;
-	private javax.swing.JTextField jTextField1;
+	private javax.swing.JTextField invNOTextField;
 	private javax.swing.JTextPane jTextPane1;
 	private javax.swing.JTextPane jTextPane2;
-	private javax.swing.JTextField jTextField2;
-	private javax.swing.JTextField jTextField3;
+	private javax.swing.JTextField percTextField;
+	private javax.swing.JTextField tinTextField;
 	private javax.swing.JPanel toplevelPanel;
 
 	// End of variables declaration//GEN-END:variables
