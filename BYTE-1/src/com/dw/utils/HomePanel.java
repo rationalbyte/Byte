@@ -44,15 +44,16 @@ public class HomePanel extends javax.swing.JFrame {
 		initComponents();
 		editDCButton.setEnabled(false);
 		deleteDCButton.setEnabled(false);
+
 		dcTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-			
+
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				// TODO Auto-generated method stub
 				if (dcTable.getSelectedRowCount() > 0) {
 					editDCButton.setEnabled(true);
 					deleteDCButton.setEnabled(true);
-				}else{
+				} else {
 					editDCButton.setEnabled(false);
 					deleteDCButton.setEnabled(false);
 				}
@@ -90,7 +91,7 @@ public class HomePanel extends javax.swing.JFrame {
 				if (dcTable.getSelectedRowCount() > 0) {
 					editDCButton.setEnabled(true);
 					deleteDCButton.setEnabled(true);
-				}else{
+				} else {
 					editDCButton.setEnabled(false);
 					deleteDCButton.setEnabled(false);
 				}
@@ -125,7 +126,7 @@ public class HomePanel extends javax.swing.JFrame {
 				System.out.println("LoadDelievryChallan do here");
 			}
 		});
-		loadDCButton.addActionListener(new ActionListener() {
+		editDCButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
