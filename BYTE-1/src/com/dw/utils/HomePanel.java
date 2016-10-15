@@ -6,6 +6,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JTable;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -42,6 +44,20 @@ public class HomePanel extends javax.swing.JFrame {
 		initComponents();
 		editDCButton.setEnabled(false);
 		deleteDCButton.setEnabled(false);
+		dcTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				// TODO Auto-generated method stub
+				if (dcTable.getSelectedRowCount() > 0) {
+					editDCButton.setEnabled(true);
+					deleteDCButton.setEnabled(true);
+				}else{
+					editDCButton.setEnabled(false);
+					deleteDCButton.setEnabled(false);
+				}
+			}
+		});
 		dcTable.addMouseListener(new MouseListener() {
 
 			@Override
