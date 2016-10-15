@@ -2,6 +2,8 @@ package com.dw.utils;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JTable;
 
@@ -17,7 +19,8 @@ import javax.swing.JTable;
  */
 public class HomePanel extends javax.swing.JFrame {
 	javax.swing.JTabbedPane jTabbedPane1 = null;
-	CreateDCPanel cdPanel=null;
+	CreateDCPanel cdPanel = null;
+
 	public CreateDCPanel getCdPanel() {
 		return cdPanel;
 	}
@@ -35,8 +38,49 @@ public class HomePanel extends javax.swing.JFrame {
 	// jTable2
 
 	public HomePanel(JTable table, javax.swing.JTabbedPane jTabbedPane) {
-		this.jTable2 = table;
+		this.dcTable = table;
 		initComponents();
+		editDCButton.setEnabled(false);
+		deleteDCButton.setEnabled(false);
+		dcTable.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				if (dcTable.getSelectedRowCount() > 0) {
+					editDCButton.setEnabled(true);
+					deleteDCButton.setEnabled(true);
+				}else{
+					editDCButton.setEnabled(false);
+					deleteDCButton.setEnabled(false);
+				}
+			}
+		});
+
 		jTabbedPane1 = jTabbedPane;
 		createDCButton.addActionListener(new ActionListener() {
 
@@ -196,7 +240,7 @@ public class HomePanel extends javax.swing.JFrame {
 
 		jPanel3.setLayout(new java.awt.BorderLayout());
 
-		jScrollPane2.setViewportView(jTable2);
+		jScrollPane2.setViewportView(dcTable);
 
 		jPanel3.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
@@ -235,10 +279,10 @@ public class HomePanel extends javax.swing.JFrame {
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
-        gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.weighty = 1.0;
-        jPanel4.add(jPanel2, gridBagConstraints);
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+		gridBagConstraints.weightx = 0.5;
+		gridBagConstraints.weighty = 1.0;
+		jPanel4.add(jPanel2, gridBagConstraints);
 
 		jPanel5.setLayout(new java.awt.GridBagLayout());
 
@@ -271,26 +315,26 @@ public class HomePanel extends javax.swing.JFrame {
 		});
 		jPanel5.add(genInvButton, new java.awt.GridBagConstraints());
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
-        gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.weighty = 1.0;
-        jPanel4.add(jPanel5, gridBagConstraints);
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 0;
+		gridBagConstraints.gridy = 0;
+		gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+		gridBagConstraints.weightx = 0.5;
+		gridBagConstraints.weighty = 1.0;
+		jPanel4.add(jPanel5, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 0.5;
-        toplevelPanel.add(jPanel4, gridBagConstraints);
+		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints.gridx = 0;
+		gridBagConstraints.gridy = 3;
+		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+		gridBagConstraints.weightx = 1.0;
+		gridBagConstraints.weighty = 0.5;
+		toplevelPanel.add(jPanel4, gridBagConstraints);
 
-        getContentPane().add(toplevelPanel, java.awt.BorderLayout.CENTER);
+		getContentPane().add(toplevelPanel, java.awt.BorderLayout.CENTER);
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+		pack();
+	}// </editor-fold>//GEN-END:initComponents
 
 	private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
 		// TODO add your handling code here:
@@ -375,7 +419,7 @@ public class HomePanel extends javax.swing.JFrame {
 	private javax.swing.JScrollPane jScrollPane1;
 	private javax.swing.JScrollPane jScrollPane2;
 	private javax.swing.JScrollPane jScrollPane3;
-	private javax.swing.JTable jTable2;
+	private javax.swing.JTable dcTable;
 	private javax.swing.JTextField invNOTextField;
 	private javax.swing.JTextPane jTextPane1;
 	private javax.swing.JTextPane jTextPane2;
