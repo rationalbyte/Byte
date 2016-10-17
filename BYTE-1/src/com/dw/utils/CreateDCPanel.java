@@ -6,12 +6,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import javax.swing.JComboBox;
 import javax.swing.JTabbedPane;
 import javax.swing.table.TableColumnModel;
 
 import org.jdesktop.swingx.JXDatePicker;
 
 import com.dw.editor.DCTableEditor;
+import com.dw.model.DCPojo;
 import com.dw.model.DCTableModel;
 
 /*
@@ -26,6 +28,18 @@ import com.dw.model.DCTableModel;
  */
 public class CreateDCPanel extends javax.swing.JFrame {
 	static int rcnt = 0;
+	
+	
+	public DCPojo getSelectedRowObj() {
+		return selectedRowObj;
+	}
+
+	public void setSelectedRowObj(DCPojo selectedRowObj) {
+		this.selectedRowObj = selectedRowObj;
+	}
+
+	DCPojo selectedRowObj=null;
+	
 
 	/**
 	 * Creates new form CreateDCPanel
@@ -114,6 +128,7 @@ public class CreateDCPanel extends javax.swing.JFrame {
 		});
 
 	}
+	
 
 	/**
 	 * Creates new form CreateDCPanel
@@ -226,7 +241,7 @@ public class CreateDCPanel extends javax.swing.JFrame {
 
 		propertiersPanel.setLayout(new java.awt.GridBagLayout());
 
-		noL.setText("No:");
+		noL.setText("DC No:");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
 		gridBagConstraints.weightx = 0.2;
@@ -253,7 +268,7 @@ public class CreateDCPanel extends javax.swing.JFrame {
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
 		propertiersPanel.add(orderDateLabel, gridBagConstraints);
 
-		dateLabel.setText("Date:");
+		dateLabel.setText("DC Date:");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 0;
@@ -396,7 +411,7 @@ public class CreateDCPanel extends javax.swing.JFrame {
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
 		propertiersPanel.add(rTF, gridBagConstraints);
 
-		copanyLabel.setText("Company Name:");
+		copanyLabel.setText("Customer Name:");
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 8;
 		gridBagConstraints.gridy = 0;
@@ -583,6 +598,14 @@ public class CreateDCPanel extends javax.swing.JFrame {
 	private javax.swing.JTextField noTF;
 	JXDatePicker dateP = new JXDatePicker();
 	JXDatePicker dateOP = new JXDatePicker();
+
+	public JXDatePicker getDateOP() {
+		return dateOP;
+	}
+
+	public void setDateOP(JXDatePicker dateOP) {
+		this.dateOP = dateOP;
+	}
 
 	private javax.swing.JTextField rMTF;
 	private javax.swing.JPanel propertiersPanel;

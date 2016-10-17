@@ -15,46 +15,17 @@ import javax.swing.table.AbstractTableModel;
 public class CustomerTableModel extends AbstractTableModel {
 
     ArrayList<ArrayList<String>> model = new ArrayList<ArrayList<String>>();
-    String columns[] = {" Sno ", "Your Order No", "Your Order Date", "Our DC No", "Our DC Date"};
+    String columns[] = {" Sno ", "Order No", "Order Date", "DC No", "DC Date"};
 
     public CustomerTableModel() {
         ArrayList<String> aux = new ArrayList<String>();
-        aux.add("aaa");
-        aux.add("bbb");
-        aux.add("ccc");
+        aux.add("1");
+        aux.add("Order No");
+        aux.add("Order Date");
+        aux.add("Our DC No");
+        aux.add("Our DC Date");
         model.add(aux);
-        aux.add("aaa");
-        aux.add("bbb");
-        aux.add("ccc");
-        model.add(aux);
-        aux.add("aaa");
-        aux.add("bbb");
-        aux.add("ccc");
-        model.add(aux);
-        aux.add("aaa");
-        aux.add("bbb");
-        aux.add("ccc");
-        model.add(aux);
-        aux.add("aaa");
-        aux.add("bbb");
-        aux.add("ccc");
-        model.add(aux);
-        aux.add("aaa");
-        aux.add("bbb");
-        aux.add("ccc");
-        model.add(aux);
-        aux.add("aaa");
-        aux.add("bbb");
-        aux.add("ccc");
-        model.add(aux);
-        aux.add("aaa");
-        aux.add("bbb");
-        aux.add("ccc");
-        model.add(aux);
-        aux.add("aaa");
-        aux.add("bbb");
-        aux.add("ccc");
-        model.add(aux);
+       
 
     }
 

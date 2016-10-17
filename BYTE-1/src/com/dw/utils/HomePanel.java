@@ -4,10 +4,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
+import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+
+import com.dw.model.CustomerTableModel;
+import com.dw.model.DCPojo;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,6 +27,25 @@ import javax.swing.event.ListSelectionListener;
 public class HomePanel extends javax.swing.JFrame {
 	javax.swing.JTabbedPane jTabbedPane1 = null;
 	CreateDCPanel cdPanel = null;
+	CustomerTableModel customerTableModel = null;
+
+	JComboBox<String> itemsList = null;
+
+	public JComboBox<String> getItemsList() {
+		return itemsList;
+	}
+
+	public void setItemsList(JComboBox<String> itemsList) {
+		this.itemsList = itemsList;
+	}
+
+	public CustomerTableModel getCustomerTableModel() {
+		return customerTableModel;
+	}
+
+	public void setCustomerTableModel(CustomerTableModel customerTableModel) {
+		this.customerTableModel = customerTableModel;
+	}
 
 	public CreateDCPanel getCdPanel() {
 		return cdPanel;
@@ -131,7 +155,19 @@ public class HomePanel extends javax.swing.JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				int rno = dcTable.getSelectedRow();
+
 				System.out.println("EDIT DelievryChallan do here");
+
+				cdPanel.getDateOP().setEnabled(false);
+				jTabbedPane1.setEnabledAt(0, true);
+				jTabbedPane1.setEnabledAt(1, false);
+				jTabbedPane1.setEnabledAt(2, true);
+				jTabbedPane1.setEnabledAt(3, false);
+				jTabbedPane1.setEnabledAt(4, false);
+				jTabbedPane1.setEnabledAt(5, false);
+
+				jTabbedPane1.getModel().setSelectedIndex(2);
 			}
 		});
 		deleteDCButton.addActionListener(new ActionListener() {
@@ -233,7 +269,7 @@ public class HomePanel extends javax.swing.JFrame {
 		createDCButton.setText("Create Delivery Challan");
 		jPanel1.add(createDCButton, new java.awt.GridBagConstraints());
 
-		msLabel.setText("M/s");
+		msLabel.setText("Customer Name:");
 		jPanel1.add(msLabel, new java.awt.GridBagConstraints());
 
 		jComboBox2.setModel(
