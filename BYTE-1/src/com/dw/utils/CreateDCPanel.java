@@ -13,6 +13,7 @@ import javax.swing.table.TableColumnModel;
 import org.jdesktop.swingx.JXDatePicker;
 
 import com.dw.editor.DCTableEditor;
+import com.dw.model.CustomerTableModel;
 import com.dw.model.DCPojo;
 import com.dw.model.DCTableModel;
 
@@ -28,8 +29,16 @@ import com.dw.model.DCTableModel;
  */
 public class CreateDCPanel extends javax.swing.JFrame {
 	static int rcnt = 0;
-	
-	
+	CustomerTableModel customerTableModel = null;
+
+	public CustomerTableModel getCustomerTableModel() {
+		return customerTableModel;
+	}
+
+	public void setCustomerTableModel(CustomerTableModel customerTableModel) {
+		this.customerTableModel = customerTableModel;
+	}
+
 	public DCPojo getSelectedRowObj() {
 		return selectedRowObj;
 	}
@@ -38,8 +47,7 @@ public class CreateDCPanel extends javax.swing.JFrame {
 		this.selectedRowObj = selectedRowObj;
 	}
 
-	DCPojo selectedRowObj=null;
-	
+	DCPojo selectedRowObj = null;
 
 	/**
 	 * Creates new form CreateDCPanel
@@ -51,8 +59,7 @@ public class CreateDCPanel extends javax.swing.JFrame {
 
 		dateOP.setDate(Calendar.getInstance().getTime());
 		dateOP.setFormats(new SimpleDateFormat("dd/MM/yyyy"));
-		
-		
+
 		saveButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -60,10 +67,17 @@ public class CreateDCPanel extends javax.swing.JFrame {
 				System.out.println("TO DO for SAVE");
 				saveButton.setText("Update");
 				cancelButton.setText("Home");
+
+				ArrayList<String> aux = new ArrayList<String>();
+				aux.add(orderNoTF.getText());
+				aux.add(dateOP.getDate().toString());
+				aux.add(snoTF.getText());
+				aux.add(dateP.getDate().toString());
+				customerTableModel.addRow(aux);
+
 			}
 		});
-		
-		
+
 		cancelButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -91,7 +105,7 @@ public class CreateDCPanel extends javax.swing.JFrame {
 				// TODO Auto-generated method stub
 				ArrayList<String> row = new ArrayList<>();
 				rcnt++;
-				row.add(rcnt+"");
+				row.add(rcnt + "");
 				row.add(desTF.getText());
 				row.add(descriptionTF.getText());
 				row.add(jComboBox1.getSelectedItem().toString());
@@ -128,7 +142,6 @@ public class CreateDCPanel extends javax.swing.JFrame {
 		});
 
 	}
-	
 
 	/**
 	 * Creates new form CreateDCPanel
@@ -551,6 +564,7 @@ public class CreateDCPanel extends javax.swing.JFrame {
 	}
 
 	private javax.swing.JButton cancelButton;
+
 	public javax.swing.JButton getCancelButton() {
 		return cancelButton;
 	}
@@ -592,6 +606,14 @@ public class CreateDCPanel extends javax.swing.JFrame {
 	private javax.swing.JTextField companyTF;
 	private javax.swing.JTextField rTF;
 	private javax.swing.JTextField companyTextField;
+	public javax.swing.JTextField getCompanyTextField() {
+		return companyTextField;
+	}
+
+	public void setCompanyTextField(javax.swing.JTextField companyTextField) {
+		this.companyTextField = companyTextField;
+	}
+
 	private javax.swing.JTextField desTF;
 	private javax.swing.JTextField descriptionTF;
 	private javax.swing.JTextField snoTF;

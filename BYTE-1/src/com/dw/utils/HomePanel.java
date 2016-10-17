@@ -160,6 +160,7 @@ public class HomePanel extends javax.swing.JFrame {
 				System.out.println("EDIT DelievryChallan do here");
 
 				cdPanel.getDateOP().setEnabled(false);
+				cdPanel.getCompanyTextField().setText(jComboBox2.getSelectedItem().toString());
 				jTabbedPane1.setEnabledAt(0, true);
 				jTabbedPane1.setEnabledAt(1, false);
 				jTabbedPane1.setEnabledAt(2, true);
@@ -273,7 +274,7 @@ public class HomePanel extends javax.swing.JFrame {
 		jPanel1.add(msLabel, new java.awt.GridBagConstraints());
 
 		jComboBox2.setModel(
-				new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+				new javax.swing.DefaultComboBoxModel<>(new String[] { "pexabyte", "Item 2", "Item 3", "Item 4" }));
 		jPanel1.add(jComboBox2, new java.awt.GridBagConstraints());
 
 		loadDCButton.setText("LoadDelievryChallan");

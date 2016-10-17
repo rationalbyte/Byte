@@ -14,41 +14,54 @@ import javax.swing.table.AbstractTableModel;
  */
 public class CustomerTableModel extends AbstractTableModel {
 
-    ArrayList<ArrayList<String>> model = new ArrayList<ArrayList<String>>();
-    String columns[] = {" Sno ", "Order No", "Order Date", "DC No", "DC Date"};
+	ArrayList<ArrayList<String>> model = new ArrayList<ArrayList<String>>();
+	String columns[] = { " Sno ", "Order No", "Order Date", "DC No", "DC Date" };
+	static int sNo = 1;
 
-    public CustomerTableModel() {
-        ArrayList<String> aux = new ArrayList<String>();
-        aux.add("1");
-        aux.add("Order No");
-        aux.add("Order Date");
-        aux.add("Our DC No");
-        aux.add("Our DC Date");
-        model.add(aux);
-       
+	public CustomerTableModel() {
+		ArrayList<String> aux = new ArrayList<String>();
+	/*	aux.add(sNo+"");
+		aux.add("Order No");
+		aux.add("Order Date");
+		aux.add("Our DC No");
+		aux.add("Our DC Date");
+		sNo++;
+		model.add(aux);*/
 
-    }
+	}
 
-    public String getColumnName(int i) {
-        return columns[i];
-    }
+	public String getColumnName(int i) {
+		return columns[i];
+	}
 
-    @Override
-    public int getRowCount() {
-        return model.size();
-    }
+	@Override
+	public int getRowCount() {
+		return model.size();
+	}
 
-    @Override
-    public int getColumnCount() {
-        return columns.length;
-    }
+	@Override
+	public int getColumnCount() {
+		return columns.length;
+	}
 
-    @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        return model.get(rowIndex).get(columnIndex);
-    }
+	@Override
+	public Object getValueAt(int rowIndex, int columnIndex) {
+		return model.get(rowIndex).get(columnIndex);
+	}
 
-    public ArrayList<ArrayList<String>> getModel() {
-        return model;
-    }
+	public ArrayList<ArrayList<String>> getModel() {
+		return model;
+	}
+
+	public void addRow(ArrayList<String> row) {
+		sNo++;
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add(sNo+"");
+		aux.add(row.get(0));
+		aux.add(row.get(1));
+		aux.add(row.get(2));
+		aux.add(row.get(3));
+		model.add(aux);
+		fireTableDataChanged();
+	}
 }

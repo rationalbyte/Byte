@@ -115,7 +115,7 @@ public class TopLevelContainer extends javax.swing.JFrame {
 		jLabel12 = new javax.swing.JLabel();
 		rateOfInterestTextField = new javax.swing.JTextField();
 		CreateDCPanel delevaryPanel = new CreateDCPanel(jTabbedPane1);
-
+		delevaryPanel.setCustomerTableModel(customerTableModel);
 		jPanel4 = delevaryPanel.getDcPanel();
 		jPanel5 = new javax.swing.JPanel();
 		jPanel6 = new javax.swing.JPanel();
