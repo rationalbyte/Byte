@@ -27,6 +27,7 @@ public class Invoice1 {
 	private String dcIds;
 	private String tax;
 	private String total;
+	private Integer[] dcIdList;
 	/**
 	 * @return the billNumber
 	 */
@@ -158,6 +159,18 @@ public class Invoice1 {
 	 */
 	public void setTax(String tax) {
 		this.tax = tax;
+	}
+	/**
+	 * @return the dcIdList
+	 */
+	public Integer[] getDcIdList() {
+		return dcIdList;
+	}
+	/**
+	 * @param dcIdList the dcIdList to set
+	 */
+	public void setDcIdList(Integer[] dcIdList) {
+		this.dcIdList = dcIdList;
 	}
 	
 

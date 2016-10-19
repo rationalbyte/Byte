@@ -1,5 +1,6 @@
 package com.dw.data.access;
 
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -157,15 +158,30 @@ public class DeliveryChalanDao extends DerbyCommonDao{
 		return deliveryChallanList;
 	}
 	
-	public List<DeliveryChalanTO> getDeliveryChallansByDcIds(String dcIds){
-		Connection conn = getConnection();
+	public List<DeliveryChalanTO> getDeliveryChallansByDcIds(Connection conn, Integer[] dcIdsList ){
+		//Connection conn = getConnection();
 		List<DeliveryChalanTO> deliveryChallanList = new ArrayList<DeliveryChalanTO>();
-		StringBuffer searchQuery = new StringBuffer();
-		searchQuery.append("SELECT * FROM DELIVERY_CHALLAN WHERE OUR_DC_NO IN (?) ORDER BY OUR_DC_NO ");
+		StringBuilder searchQuery = new StringBuilder();
+		//searchQuery.append("SELECT * FROM DELIVERY_CHALLAN WHERE OUR_DC_NO IN (?, ?, ?, ?, ?) ORDER BY OUR_DC_NO ");
+		searchQuery.append("SELECT * FROM DELIVERY_CHALLAN WHERE OUR_DC_NO IN (?"); //, ?, ?, ?, ?") ORDER BY OUR_DC_NO ");
+		
+		//, ?, ?, ?, ?
+		for(int i=0; i< dcIdsList.length-1; i++){
+			searchQuery.append(", ?");
+		}
+		searchQuery.append(") ORDER BY OUR_DC_NO ");
 		PreparedStatement preparedStatement = null;
 		try {
+			System.out.println("Search Query is---------->"+ searchQuery.toString());
 			preparedStatement = conn.prepareStatement(searchQuery.toString());
-			preparedStatement.setString(1, dcIds);
+			//Integer [] deliveryChallanIds = { "10022", "02110", "07399" };
+			//Array dcIdArray = conn.createArrayOf("INT", dcIdsList);
+			//preparedStatement.setArray(1, dcIdArray);
+			//preparedStatement.setString(1, dcIds);
+			for(int i=0; i< dcIdsList.length; i++){
+				System.out.println("The element in dcIdsList ----->"+dcIdsList[i]);
+				preparedStatement.setInt(i+1, dcIdsList[i]);
+			}
 			ResultSet rs = preparedStatement.executeQuery();
 			while (rs.next()) {
 				DeliveryChalanTO dc = new DeliveryChalanTO();
@@ -185,16 +201,27 @@ public class DeliveryChalanDao extends DerbyCommonDao{
 		return deliveryChallanList;
 	}
 	
-	public List<DeliveryItem> getDeliveryItemsByDcIds(Invoice1 invoice, String dcIds) {
-		Connection conn = getConnection();
+	public List<DeliveryItem> getDeliveryItemsByDcIds(Connection conn, Invoice1 invoice) {
+		//Connection conn = getConnection();
 		Double total = 0d;
 		List<DeliveryItem> deliveryItemList = new ArrayList<DeliveryItem>();
-		StringBuffer searchQuery = new StringBuffer();
-		searchQuery.append("SELECT * FROM DELIVERY_ITEM WHERE OUR_DC_NO IN (?) ORDER BY OUR_DC_NO ");
+		StringBuilder searchQuery = new StringBuilder();
+		searchQuery.append("SELECT * FROM DELIVERY_ITEM WHERE OUR_DC_NO IN (?") ;
+		for(int i=0; i< invoice.getDcIdList().length-1; i++){
+			searchQuery.append(", ?");
+		}		
+		searchQuery.append(") ORDER BY OUR_DC_NO");
 		PreparedStatement preparedStatement = null;
+		Integer[] dcIdList = invoice.getDcIdList();
 		try {
 			preparedStatement = conn.prepareStatement(searchQuery.toString());
-			preparedStatement.setString(1, dcIds);
+			for(int i=0; i< dcIdList.length; i++){
+				System.out.println("The element in dcIdsList ----->"+dcIdList[i]);
+				preparedStatement.setInt(i+1, dcIdList[i]);
+			}
+			/*Array dcIdArray = conn.createArrayOf("INT", invoice.getDcIdList());
+			preparedStatement.setArray(1, dcIdArray);*/
+			//preparedStatement.setString(1, dcIds);
 			ResultSet rs = preparedStatement.executeQuery();
 			while (rs.next()) {
 				DeliveryItem di = new DeliveryItem();

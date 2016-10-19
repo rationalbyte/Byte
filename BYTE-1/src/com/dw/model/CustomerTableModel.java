@@ -16,17 +16,11 @@ public class CustomerTableModel extends AbstractTableModel {
 
 	ArrayList<ArrayList<String>> model = new ArrayList<ArrayList<String>>();
 	String columns[] = { " Sno ", "Order No", "Order Date", "DC No", "DC Date" };
-	static int sNo = 1;
+	static int sNo = 0;
 
 	public CustomerTableModel() {
 		ArrayList<String> aux = new ArrayList<String>();
-	/*	aux.add(sNo+"");
-		aux.add("Order No");
-		aux.add("Order Date");
-		aux.add("Our DC No");
-		aux.add("Our DC Date");
-		sNo++;
-		model.add(aux);*/
+	 
 
 	}
 

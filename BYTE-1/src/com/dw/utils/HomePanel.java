@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
 
 import javax.swing.JComboBox;
 import javax.swing.JTable;
@@ -12,7 +11,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import com.dw.model.CustomerTableModel;
-import com.dw.model.DCPojo;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -136,6 +134,9 @@ public class HomePanel extends javax.swing.JFrame {
 				jTabbedPane1.setEnabledAt(4, false);
 				jTabbedPane1.setEnabledAt(5, false);
 
+				cdPanel.getDcModel().getModel().clear();
+				cdPanel.setRcnt(0);
+				cdPanel.getDcModel().fireTableDataChanged();
 				cdPanel.getSaveButton().setText("Save");
 				cdPanel.getCancelButton().setText("Cancel");
 				jTabbedPane1.getModel().setSelectedIndex(2);

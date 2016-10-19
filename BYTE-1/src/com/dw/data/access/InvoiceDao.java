@@ -43,10 +43,18 @@ public class InvoiceDao extends DerbyCommonDao {
 			invoiceInsert.setString(5, invoice.getPartyTinNo());
 			invoiceInsert.executeUpdate();
 			System.out.println("DATA INSERTED INTO INVOICE TABLE");
-			String dcIds = saveInvoiceAndDc(conn, billNumber, invoice.getDeliveryChallansList());
-			conn.commit();
+			//String dcIds = saveInvoiceAndDc(conn, billNumber, invoice.getDeliveryChallansList());
+			Integer[] dcIdsList = saveInvoiceAndDc(conn, billNumber, invoice.getDeliveryChallansList());
 			invoice.setBillNumber(String.valueOf(billNumber));
-			invoice.setDcIds(dcIds);
+			//invoice.setDcIds(dcIds);
+			invoice.setDcIdList(dcIdsList);
+			//////////
+			//dcIds = dcIds.substring(0, dcIds.length()-2);
+			loadDeliveryChallans(conn, invoice);
+			loadDeleveryItems(conn, invoice);
+			/////////
+			
+			conn.commit();
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -58,7 +66,7 @@ public class InvoiceDao extends DerbyCommonDao {
 			//Close connection and statement
 			try {
 				invoiceInsert.close();
-				conn.close();
+				//conn.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -69,9 +77,10 @@ public class InvoiceDao extends DerbyCommonDao {
 		
 	}
 	
-	private String saveInvoiceAndDc(Connection conn, Integer billNumber,  List<DeliveryChalanTO> deliveryChallanList ) throws SQLException{
+	private Integer[] saveInvoiceAndDc(Connection conn, Integer billNumber,  List<DeliveryChalanTO> deliveryChallanList ) throws SQLException{
 	//private void saveDeliveryItemList(Connection conn, Integer ourDcNumber,  List<DeliveryItem> deliveryItemsList, PreparedStatement ps) throws SQLException{
-		StringBuffer dcIds = new StringBuffer();
+		Integer[] dcIds = new Integer[deliveryChallanList.size()];
+		int dcIdCounter = 0;
 		int index = 1;	
 		//Create DeliveryItems List.
 		StringBuilder createInvoiceAndDc = new StringBuilder();
@@ -85,7 +94,9 @@ public class InvoiceDao extends DerbyCommonDao {
 		for(DeliveryChalanTO deliveryChalanTO : deliveryChallanList){
 			ps.setInt(index++, billNumber);
 			ps.setInt(index++, Integer.parseInt(deliveryChalanTO.getNo()));
-			dcIds.append(deliveryChalanTO.getNo()).append(", ");
+			//dcIds.append(deliveryChalanTO.getNo()).append(", ");
+			dcIds[dcIdCounter] = Integer.parseInt(deliveryChalanTO.getNo());
+			dcIdCounter = dcIdCounter+1;
 			ps.executeUpdate();
 			//ps.execute();
 			index = 1;
@@ -93,7 +104,7 @@ public class InvoiceDao extends DerbyCommonDao {
 		
 		ps.close();
 		
-		return dcIds.toString();
+		return dcIds;
 		
 		
 	}
@@ -111,6 +122,18 @@ public class InvoiceDao extends DerbyCommonDao {
        	
         }
 		return nextSequenceNumber;
+	}
+	
+	private static void loadDeliveryChallans(Connection conn, Invoice1 invoice){
+		DeliveryChalanDao deliveryChalanDao = new DeliveryChalanDao();
+		List<DeliveryChalanTO> dcList = deliveryChalanDao.getDeliveryChallansByDcIds(conn, invoice.getDcIdList());
+		invoice.setDeliveryChallansList(dcList);
+	}
+	
+	private static void loadDeleveryItems(Connection conn, Invoice1 invoice){
+		DeliveryChalanDao deliveryChalanDao = new DeliveryChalanDao();
+		List<DeliveryItem> diList = deliveryChalanDao.getDeliveryItemsByDcIds(conn, invoice);
+		invoice.setItemsList(diList);
 	}
 	
 	public static void main(String args[]){

@@ -4,12 +4,14 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+
 
 
 
@@ -209,7 +211,7 @@ public class PDFGenerator implements Serializable
 			addOrdersTable(document, ordersList);
 			
 	
-			addBodyContent(document, itemsList);
+			addBodyContent(document, invoiceObj, itemsList);
 
 			
 			Chunk chunk1 = new Chunk("For ");
@@ -261,8 +263,9 @@ public class PDFGenerator implements Serializable
 		try
 		{
 			if (name.equalsIgnoreCase("invoice")) {
-				writer = PdfWriter.getInstance(document, new FileOutputStream(
-						"E:\\PROJECTS\\INVOICE\\ramana_engg\\Reports\\FirstExample.pdf"));//  E:\\PROJECTS\\INVOICE\\ramana_engg\\Reports
+				writer = PdfWriter.getInstance(document, new FileOutputStream("/home/samuel/Downloads/invoice-jars/FirstExample.pdf"));//  E:\\PROJECTS\\INVOICE\\ramana_engg\\Reports
+				//writer = PdfWriter.getInstance(document, new FileOutputStream("C:\\ITEXT\\FirstExample.pdf"));//  E:\\PROJECTS\\INVOICE\\ramana_engg\\Reports
+				
 			}
 			else
 			{
@@ -312,7 +315,7 @@ public class PDFGenerator implements Serializable
 		try
 		{
 			//img = Image.getInstance("C:\\Users\\axj8041\\Desktop\\Personal\\invoice_logo.png");
-			img = Image.getInstance("E:\\PROJECTS\\INVOICE\\ramana_engg\\Reports\\rew_logo.png");
+			img = Image.getInstance("/home/samuel/Downloads/invoice-jars/rew_logo.png");
 			// img.scalePercent(300f);
 			// img.scaleToFit(150f, 150f);
 
@@ -490,11 +493,12 @@ public class PDFGenerator implements Serializable
 	 * @throws DocumentException
 	 * @throws ProcessingException
 	 */
-	private static void addBodyContent(Document document, List<DeliveryItem> itemsList) throws DocumentException, ProcessingException
+	private static void addBodyContent(Document document,Invoice1 invoiceObj, List<DeliveryItem> itemsList) throws DocumentException, ProcessingException
 	{
 
 		try
 		{
+			
 			PdfPTable pdfTable = new PdfPTable(8);
 			pdfTable.setSpacingBefore(10f);
 
@@ -614,7 +618,7 @@ public class PDFGenerator implements Serializable
 
 				pdfCell = null;
 				// per.
-				pdfCell = new PdfPCell(new Phrase("-", PDFFont.getCourier06WithNormal()));
+				pdfCell = new PdfPCell(new Phrase(itemObj.getPer(), PDFFont.getCourier06WithNormal()));
 				// pdfCell22.setRowspan(1);
 				// pdfCell.setBorder(Rectangle.NO_BORDER);
 				pdfCell.setBorder(PdfPCell.LEFT);
@@ -664,117 +668,157 @@ public class PDFGenerator implements Serializable
 			/**********************************************************************************************************************/
 
 			// serial no:-
-			PdfPCell pdfCell = new PdfPCell(new Phrase("", PDFFont.getCourier06WithNormal()));
+			//PdfPCell pdfCell = new PdfPCell(new Phrase("", PDFFont.getCourier06WithNormal()));
 			// pdfCell.setRowspan(1);
 			// pdfCell.setBorder(Rectangle.NO_BORDER);
-			pdfCell.setBorder(PdfPCell.LEFT);
-			pdfCell.setBorderColor(BaseColor.BLUE);
-			pdfTable.addCell(pdfCell);
+			//pdfCell.setBorder(PdfPCell.LEFT);
+			//pdfCell.setBorderColor(BaseColor.BLUE);
+			//pdfTable.addCell(pdfCell);
 
-			pdfCell = null;
+			//pdfCell = null;
 
-		    pdfCell = new PdfPCell(new Phrase("", PDFFont.getCourier06WithNormal()));
+		    //pdfCell = new PdfPCell(new Phrase("", PDFFont.getCourier06WithNormal()));
 			// pdfCell.setRowspan(1);
 			// pdfCell.setBorder(Rectangle.NO_BORDER);
-			pdfCell.setBorder(PdfPCell.LEFT);
-			pdfCell.setBorderColor(BaseColor.BLUE);
-			pdfTable.addCell(pdfCell);
+			//pdfCell.setBorder(PdfPCell.LEFT);
+			//pdfCell.setBorderColor(BaseColor.BLUE);
+			//pdfTable.addCell(pdfCell);
 
-			pdfCell = null;
+			//pdfCell = null;
 			
 			// particulars.
-			pdfCell = new PdfPCell(new Phrase(StringUtils.leftPad("VAT", 10, " ").concat("   ").concat("%"), PDFFont.getCourier06WithNormal()));
+			//pdfCell = new PdfPCell(new Phrase(StringUtils.leftPad("VAT", 10, " ").concat("   ").concat("%"), PDFFont.getCourier06WithNormal()));
 			// pdfCell22.setRowspan(1);
 			// pdfCell.setBorder(Rectangle.NO_BORDER);
-			pdfCell.setBorder(PdfPCell.LEFT);
-			pdfCell.setBorderColor(BaseColor.BLUE);
-			pdfCell.setHorizontalAlignment(Element.ALIGN_RIGHT);
+			//pdfCell.setBorder(PdfPCell.LEFT);
+			//pdfCell.setBorderColor(BaseColor.BLUE);
+			//pdfCell.setHorizontalAlignment(Element.ALIGN_RIGHT);
 			// pdfCell.setVerticalAlignment(verticalAlignment);
-			pdfTable.addCell(pdfCell);
+			//pdfTable.addCell(pdfCell);
 
-			pdfCell = null;
+			//pdfCell = null;
 
 			// Qty.
-			pdfCell = new PdfPCell(new Phrase("", PDFFont.getCourier06WithNormal()));
+			//pdfCell = new PdfPCell(new Phrase("", PDFFont.getCourier06WithNormal()));
 			// pdfCell22.setRowspan(1);
 			// pdfCell.setBorder(Rectangle.NO_BORDER);
-			pdfCell.setBorder(PdfPCell.LEFT);
-			pdfCell.setBorderColor(BaseColor.BLUE);
-			pdfTable.addCell(pdfCell);
+			//pdfCell.setBorder(PdfPCell.LEFT);
+			//pdfCell.setBorderColor(BaseColor.BLUE);
+			//pdfTable.addCell(pdfCell);
 
-			pdfCell = null;
+			//pdfCell = null;
 			// per.
-			pdfCell = new PdfPCell(new Phrase("6", PDFFont.getCourier06WithNormal()));
+			//pdfCell = new PdfPCell(new Phrase("6", PDFFont.getCourier06WithNormal()));
 			// pdfCell22.setRowspan(1);
 			// pdfCell.setBorder(Rectangle.NO_BORDER);
-			pdfCell.setBorder(PdfPCell.LEFT);
-			pdfCell.setBorderColor(BaseColor.BLUE);
-			pdfCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-			pdfTable.addCell(pdfCell);
+			//pdfCell.setBorder(PdfPCell.LEFT);
+			//pdfCell.setBorderColor(BaseColor.BLUE);
+			//pdfCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+			//pdfTable.addCell(pdfCell);
 
-			pdfCell = null;
+			//pdfCell = null;
 			// Rate..
-			pdfCell = new PdfPCell(new Phrase(StringUtils.leftPad(" ", 5, " "), PDFFont.getCourier06WithNormal()));
+			//pdfCell = new PdfPCell(new Phrase(StringUtils.leftPad(" ", 5, " "), PDFFont.getCourier06WithNormal()));
 			// pdfCell22.setRowspan(1);
 			// pdfCell.setBorder(Rectangle.NO_BORDER);
-			pdfCell.setBorder(PdfPCell.LEFT);
-			pdfCell.setBorderColor(BaseColor.BLUE);
-			pdfTable.addCell(pdfCell);
+			//pdfCell.setBorder(PdfPCell.LEFT);
+			//pdfCell.setBorderColor(BaseColor.BLUE);
+			//pdfTable.addCell(pdfCell);
 
-			pdfCell = null;
+			//pdfCell = null;
 
-			float vat = .06f;
+			//float vat = .06f;
+			float vat = (Float.parseFloat(invoiceObj.getServiceTaxPercentage()))/100;
 			float amountAfterTax = vat * (sum);
+			amountAfterTax = round(amountAfterTax,2);
 			float vatPaise = (amountAfterTax % 1);
 			int vatAmount = (int) amountAfterTax;
 			float allAmntPaise = (sum % 1);
 			double vatPaiseRoundOff = Math.round(vatPaise * 100.0) / 100.0;
 			double totalAmtWithVat = sum + vatAmount + vatPaiseRoundOff;
+			String amountAfterTaxInString = Float.toString(amountAfterTax);
 			// Amount in Rupees.
-			pdfCell = new PdfPCell(new Phrase(StringUtils.leftPad(String.valueOf(vatAmount), 5, " "), PDFFont.getCourier06WithNormal()));
+			//PdfPCell pdfCell = new PdfPCell(new Phrase(StringUtils.leftPad(String.valueOf(vatAmount), 5, " "), PDFFont.getCourier06WithNormal()));
 			// pdfCell22.setRowspan(1);
 			// pdfCell.setBorder(Rectangle.NO_BORDER);
-			pdfCell.setBorder(PdfPCell.LEFT);
-			pdfCell.setBorderColor(BaseColor.BLUE);
-			pdfCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-			pdfTable.addCell(pdfCell);
+			//pdfCell.setBorder(PdfPCell.LEFT);
+			//pdfCell.setBorderColor(BaseColor.BLUE);
+			//pdfCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+			//pdfTable.addCell(pdfCell);
 
-			pdfCell = null;
+			//pdfCell = null;
 
 			// Amount in Paise.
-			pdfCell = new PdfPCell(new Phrase(StringUtils.leftPad(String.valueOf(vatPaiseRoundOff), 5, " "), PDFFont.getCourier06WithNormal()));
+			//pdfCell = new PdfPCell(new Phrase(StringUtils.leftPad(String.valueOf(vatPaiseRoundOff), 5, " "), PDFFont.getCourier06WithNormal()));
 			// pdfCell22.setRowspan(1);
 			// pdfCell.setBorder(Rectangle.NO_BORDER);
-			pdfCell.setBorder(PdfPCell.RIGHT);
-			pdfCell.enableBorderSide(Rectangle.LEFT);
-			pdfCell.enableBorderSide(Rectangle.RIGHT);
+			//pdfCell.setBorder(PdfPCell.RIGHT);
+			//pdfCell.enableBorderSide(Rectangle.LEFT);
+			//pdfCell.enableBorderSide(Rectangle.RIGHT);
+			//pdfCell.setBorderColor(BaseColor.BLUE);
+			//pdfCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+			//pdfTable.addCell(pdfCell);
+
+			//pdfCell = null;
+			
+			PdfPCell pdfCell = new PdfPCell(new Phrase(invoiceObj.getServiceTaxLabel()+"    "+invoiceObj.getServiceTaxPercentage()+"    "+"%", PDFFont.getCourier06WithNormal()));
+			pdfCell.setColspan(6);
+			// pdfCell.setBorder(PdfPCell.LEFT);
+			pdfCell.setBorderColor(BaseColor.BLUE);
+			pdfCell.setHorizontalAlignment(Element.ALIGN_LEFT);
+			pdfTable.addCell(pdfCell);
+
+			
+			/*pdfCell = null;
+
+			pdfCell = new PdfPCell(new Phrase(" ", PDFFont.getCourier06WithNormal()));
+			// pdfCell.setColspan(4);
+			//pdfCell.setBorder(PdfPCell.RIGHT);
+			pdfCell.setBorderColor(BaseColor.BLUE);
+			pdfCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+			pdfTable.addCell(pdfCell);*/
+
+			pdfCell = null;
+
+			pdfCell = new PdfPCell(new Phrase(amountAfterTaxInString, PDFFont.getCourier06WithNormal()));
+			// pdfCell.setColspan(4);
+			// pdfCell.setBorder(PdfPCell.LEFT);
 			pdfCell.setBorderColor(BaseColor.BLUE);
 			pdfCell.setHorizontalAlignment(Element.ALIGN_CENTER);
 			pdfTable.addCell(pdfCell);
 
 			pdfCell = null;
 
+			pdfCell = new PdfPCell(new Phrase(" ", PDFFont.getCourier06WithNormal()));
+			// pdfCell.setColspan(4);
+			// pdfCell.setBorder(PdfPCell.LEFT);
+			// pdfCell.setBorder(PdfPCell.RIGHT);
+			// pdfCell.setb
+			pdfCell.setBorderColor(BaseColor.BLUE);
+			pdfCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+			pdfTable.addCell(pdfCell);
+            
 			/**********************************************************************************************************************************/
 			// Table Footer row starts here..............
 			/**********************************************************************************************************************************/
 			int totAmtInRuppes = (int) totalAmtWithVat;
 			double totAmntPaise = allAmntPaise + vatPaiseRoundOff;
 
-			pdfCell = new PdfPCell(new Phrase("Rupees", PDFFont.getCourier06WithNormal()));
-			pdfCell.setColspan(5);
+			pdfCell = new PdfPCell(new Phrase("Total", PDFFont.getCourier06WithNormal()));
+			pdfCell.setColspan(6);
 			// pdfCell.setBorder(PdfPCell.LEFT);
 			pdfCell.setBorderColor(BaseColor.BLUE);
 			pdfCell.setHorizontalAlignment(Element.ALIGN_LEFT);
 			pdfTable.addCell(pdfCell);
 
-			pdfCell = null;
+			/*pdfCell = null;
 
 			pdfCell = new PdfPCell(new Phrase("Total", PDFFont.getCourier06WithNormal()));
 			// pdfCell.setColspan(4);
-			// pdfCell.setBorder(PdfPCell.LEFT);
+			 //pdfCell.setBorder(PdfPCell.RIGHT);
 			pdfCell.setBorderColor(BaseColor.BLUE);
 			pdfCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-			pdfTable.addCell(pdfCell);
+			pdfTable.addCell(pdfCell);*/
 
 			pdfCell = null;
 
@@ -1378,4 +1422,10 @@ public class PDFGenerator implements Serializable
 	    }
 		return ;
 	}
+	
+	 public static float round(float d, int decimalPlace) {
+	        BigDecimal bd = new BigDecimal(Float.toString(d));
+	        bd = bd.setScale(decimalPlace, BigDecimal.ROUND_HALF_UP);
+	        return bd.floatValue();
+	    }
 }

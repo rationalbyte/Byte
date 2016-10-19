@@ -15,16 +15,16 @@ public class DataManager {
 	public static Invoice1 saveInvoice(Invoice1 invoice){
 		InvoiceDao invoiceDao = new InvoiceDao();
 		Invoice1 invoice1 = invoiceDao.saveInvoice(invoice);
-		String dcIds = invoice1.getDcIds();
+		/*String dcIds = invoice1.getDcIds();
 		dcIds = dcIds.substring(0, dcIds.length()-2);
 		loadDeliveryChallans(invoice, dcIds);
-		loadDeleveryItems(invoice, dcIds);
+		loadDeleveryItems(invoice, dcIds);*/
 		return invoice1;
 	}
 	
-	private static void loadDeliveryChallans(Invoice1 invoice, String dcIds){
+	/*private static void loadDeliveryChallans(Invoice1 invoice, String dcIds){
 		DeliveryChalanDao deliveryChalanDao = new DeliveryChalanDao();
-		List<DeliveryChalanTO> dcList = deliveryChalanDao.getDeliveryChallansByDcIds(dcIds);
+		List<DeliveryChalanTO> dcList = deliveryChalanDao.getDeliveryChallansByDcIds(conn, dcIds);
 		invoice.setDeliveryChallansList(dcList);
 	}
 	
@@ -32,8 +32,7 @@ public class DataManager {
 		DeliveryChalanDao deliveryChalanDao = new DeliveryChalanDao();
 		List<DeliveryItem> diList = deliveryChalanDao.getDeliveryItemsByDcIds(invoice, dcIds);
 		invoice.setItemsList(diList);
-		
-	}
+	}*/
 	
 	public static Integer saveDeliveryChallan(DeliveryChalanTO deliveryChalanTO){
 		DeliveryChalanDao deliveryChalanDao = new DeliveryChalanDao();

@@ -28,6 +28,14 @@ import com.dw.model.DCTableModel;
  * @author samuel
  */
 public class CreateDCPanel extends javax.swing.JFrame {
+	public static int getRcnt() {
+		return rcnt;
+	}
+
+	public static void setRcnt(int rcnt) {
+		CreateDCPanel.rcnt = rcnt;
+	}
+
 	static int rcnt = 0;
 	CustomerTableModel customerTableModel = null;
 
@@ -634,6 +642,14 @@ public class CreateDCPanel extends javax.swing.JFrame {
 	private javax.swing.JPanel tableContainer;
 
 	private DCTableModel dcModel = new DCTableModel();
+	public DCTableModel getDcModel() {
+		return dcModel;
+	}
+
+	public void setDcModel(DCTableModel dcModel) {
+		this.dcModel = dcModel;
+	}
+
 	private DCTableEditor dcEditor = new DCTableEditor();
 	// End of variables declaration
 }

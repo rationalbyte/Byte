@@ -144,6 +144,8 @@ public class TestUtillity
 		
 		invoiceObj.setItemsList(itemsList);
 		invoiceObj.setDeliveryChallansList(ordersList);
+		invoiceObj.setServiceTaxLabel("VAT");
+		invoiceObj.setServiceTaxPercentage("6");
 		
 		StringBuilder toMsBuilder = new StringBuilder();
 		toMsBuilder.append("To.M/s \n");
